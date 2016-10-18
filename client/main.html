@@ -1,0 +1,45 @@
+<head>
+  <title>Contact Manager</title>
+</head>
+
+<body>
+
+</body>
+
+<template name="main">
+  <header id="header"></header>
+  {{>Template.dynamic template=content}}
+  <footer id="footer"></footer>
+</template>
+
+<template name="addContact">
+  <form name="formAddContact">
+    <input type="text" name="name" placeholder="Name">
+    <input type="text" name="lastname" placeholder="Lastname">
+    <input type="tel" name="telephone" placeholder="Telephone">
+    <button type="submit" id="saveContact">Save</button>
+  </form>
+</template>
+
+<template name="listContact">
+  <ul>
+    {{#each list}}
+      <li>{{name}} {{lastname}} - {{telephone}} <a href="/remove/{{_id}}">Delete</a></li>
+    {{/each}}
+  </ul>
+</template>
+
+<template name="uniqueContact">
+  <ul>
+     <li>{{unique.name}} {{unique.lastname}} - {{unique.telephone}}</li>
+  </ul>
+</template>
+
+<template name="editContact">
+  <form name="formEditContact">
+    <input type="text" name="name" placeholder="Name" value="{{data.name}}">
+    <input type="text" name="lastname" placeholder="Lastname" value="{{data.lastname}}">
+    <input type="tel" name="telephone" placeholder="Telephone" value="{{data.telephone}}">
+    <button type="submit" id="editContact">Save</button>
+  </form>
+</template>
